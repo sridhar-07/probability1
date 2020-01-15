@@ -1,0 +1,936 @@
+\documentclass[journal,12pt,twocolumn]{IEEEtran}
+\usepackage{setspace}
+\usepackage{gensymb}
+\usepackage{caption}
+%\usepackage{multirow}
+%\usepackage{multicolumn}
+%\usepackage{subcaption}
+%\doublespacing
+\singlespacing
+\usepackage{csvsimple}
+\usepackage{amsmath}
+\usepackage{multicol}
+%\usepackage{enumerate}
+\usepackage{amssymb}
+%\usepackage{graphicx}
+\usepackage{newfloat}
+%\usepackage{syntax}
+\usepackage{listings}
+%\usepackage{iithtlc}
+\usepackage{color}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows}
+
+\usepackage{array}
+
+%\usepackage{graphicx}
+%\usepackage{amssymb}
+%\usepackage{relsize}
+%\usepackage[cmex10]{amsmath}
+%\usepackage{mathtools}
+%\usepackage{amsthm}
+%\interdisplaylinepenalty=2500
+%\savesymbol{iint}
+%\usepackage{txfonts}
+%\restoresymbol{TXF}{iint}
+%\usepackage{wasysym}
+\usepackage{amsthm}
+\usepackage{mathrsfs}
+\usepackage{txfonts}
+\usepackage{stfloats}
+\usepackage{cite}
+\usepackage{cases}
+\usepackage{mathtools}
+\usepackage{caption}
+\usepackage{enumerate}	
+\usepackage{enumitem}
+\usepackage{amsmath}
+%\usepackage{xtab}
+\usepackage{longtable}
+\usepackage{multirow}
+%\usepackage{algorithm}
+%\usepackage{algpseudocode}
+\usepackage{enumitem}
+\usepackage{mathtools}
+\usepackage{multicol}
+\usepackage{hyperref}
+%\usepackage[framemethod=tikz]{mdframed}
+\usepackage{listings}
+    %\usepackage[latin1]{inputenc}                                 %%
+    \usepackage{color}                                            %%
+    \usepackage{array}                                            %%
+    \usepackage{longtable}                                        %%
+    \usepackage{calc}                                             %%
+    \usepackage{multirow}                                         %%
+    \usepackage{hhline}                                           %%
+    \usepackage{ifthen}                                           %%
+  %optionally (for landscape tables embedded in another document): %%
+    \usepackage{lscape}     
+
+\usepackage{gensymb}
+\usepackage{tfrupee}
+\usepackage{url}
+\def\UrlBreaks{\do\/\do-}
+
+
+%\usepackage{stmaryrd}
+\usepackage{multirow}
+
+
+%\usepackage{wasysym}
+%\newcounter{MYtempeqncnt}
+\DeclareMathOperator*{\Res}{Res}
+%\renewcommand{\baselinestretch}{2}
+\renewcommand\thesection{\arabic{section}}
+\renewcommand\thesubsection{\thesection.\arabic{subsection}}
+\renewcommand\thesubsubsection{\thesubsection.\arabic{subsubsection}}
+
+\renewcommand\thesectiondis{\arabic{section}}
+\renewcommand\thesubsectiondis{\thesectiondis.\arabic{subsection}}
+\renewcommand\thesubsubsectiondis{\thesubsectiondis.\arabic{subsubsection}}
+
+% correct bad hyphenation here
+\hyphenation{op-tical net-works semi-conduc-tor}
+
+%\lstset{
+%language=C,
+%frame=single, 
+%breaklines=true
+%}
+
+%\lstset{
+	%%basicstyle=\small\ttfamily\bfseries,
+	%%numberstyle=\small\ttfamily,
+	%language=Octave,
+	%backgroundcolor=\color{white},
+	%%frame=single,
+	%%keywordstyle=\bfseries,
+	%%breaklines=true,
+	%%showstringspaces=false,
+	%%xleftmargin=-10mm,
+	%%aboveskip=-1mm,
+	%%belowskip=0mm
+%}
+
+%\surroundwithmdframed[width=\columnwidth]{lstlisting}
+\def\inputGnumericTable{}                                 %%
+\lstset{
+%language=C,
+frame=single, 
+breaklines=true,
+columns=fullflexible
+}
+ 
+
+\begin{document}
+%
+\tikzstyle{block} = [rectangle, draw,
+    text width=3em, text centered, minimum height=3em]
+\tikzstyle{sum} = [draw, circle, node distance=3cm]
+\tikzstyle{input} = [coordinate]
+\tikzstyle{output} = [coordinate]
+\tikzstyle{pinstyle} = [pin edge={to-,thin,black}]
+
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{problem}{Problem}
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{example}{Example}[section]
+\newtheorem{definition}{Definition}[section]
+%\newtheorem{algorithm}{Algorithm}[section]
+%\newtheorem{cor}{Corollary}
+\newcommand{\BEQA}{\begin{eqnarray}}
+\newcommand{\EEQA}{\end{eqnarray}}
+\newcommand{\define}{\stackrel{\triangle}{=}}
+
+\bibliographystyle{IEEEtran}
+%\bibliographystyle{ieeetr}
+
+\providecommand{\nCr}[2]{\,^{#1}C_{#2}} % nCr
+\providecommand{\nPr}[2]{\,^{#1}P_{#2}} % nPr
+\providecommand{\mbf}{\mathbf}
+\providecommand{\pr}[1]{\ensuremath{\Pr\left(#1\right)}}
+\providecommand{\qfunc}[1]{\ensuremath{Q\left(#1\right)}}
+\providecommand{\sbrak}[1]{\ensuremath{{}\left[#1\right]}}
+\providecommand{\lsbrak}[1]{\ensuremath{{}\left[#1\right.}}
+\providecommand{\rsbrak}[1]{\ensuremath{{}\left.#1\right]}}
+\providecommand{\brak}[1]{\ensuremath{\left(#1\right)}}
+\providecommand{\lbrak}[1]{\ensuremath{\left(#1\right.}}
+\providecommand{\rbrak}[1]{\ensuremath{\left.#1\right)}}
+\providecommand{\cbrak}[1]{\ensuremath{\left\{#1\right\}}}
+\providecommand{\lcbrak}[1]{\ensuremath{\left\{#1\right.}}
+\providecommand{\rcbrak}[1]{\ensuremath{\left.#1\right\}}}
+\theoremstyle{remark}
+\newtheorem{rem}{Remark}
+\newcommand{\sgn}{\mathop{\mathrm{sgn}}}
+\providecommand{\abs}[1]{\left\vert#1\right\vert}
+\providecommand{\res}[1]{\Res\displaylimits_{#1}} 
+\providecommand{\norm}[1]{\left\Vert#1\right\Vert}
+\providecommand{\mtx}[1]{\mathbf{#1}}
+\providecommand{\mean}[1]{E\left[ #1 \right]}
+\providecommand{\fourier}{\overset{\mathcal{F}}{ \rightleftharpoons}}
+%\providecommand{\hilbert}{\overset{\mathcal{H}}{ \rightleftharpoons}}
+\providecommand{\system}{\overset{\mathcal{H}}{ \longleftrightarrow}}
+	%\newcommand{\solution}[2]{\textbf{Solution:}{#1}}
+\newcommand{\solution}{\noindent \textbf{Solution: }}
+\newcommand{\myvec}[1]{\ensuremath{\begin{pmatrix}#1\end{pmatrix}}}
+\providecommand{\dec}[2]{\ensuremath{\overset{#1}{\underset{#2}{\gtrless}}}}
+\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
+%\numberwithin{equation}{section}
+%\numberwithin{problem}{subsection}
+%\numberwithin{definition}{subsection}
+\makeatletter
+\@addtoreset{figure}{section}
+\makeatother
+
+\let\StandardTheFigure\thefigure
+%\renewcommand{\thefigure}{\theproblem.\arabic{figure}}
+\renewcommand{\thefigure}{\thesection}
+
+
+%\numberwithin{figure}{subsection}
+
+%\numberwithin{equation}{subsection}
+%\numberwithin{equation}{section}
+%\numberwithin{equation}{problem}
+%\numberwithin{problem}{subsection}
+\numberwithin{problem}{section}
+%%\numberwithin{definition}{subsection}
+%\makeatletter
+%\@addtoreset{figure}{problem}
+%\makeatother
+\makeatletter
+\@addtoreset{table}{section}
+\makeatother
+
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+\let\StandardTheFigure\thefigure
+\let\StandardTheTable\thetable
+\let\vec\mathbf
+%%\renewcommand{\thefigure}{\theproblem.\arabic{figure}}
+%\renewcommand{\thefigure}{\theproblem}
+
+%%\numberwithin{figure}{section}
+
+%%\numberwithin{figure}{subsection}
+
+
+
+\def\putbox#1#2#3{\makebox[0in][l]{\makebox[#1][l]{}\raisebox{\baselineskip}[0in][0in]{\raisebox{#2}[0in][0in]{#3}}}}
+     \def\rightbox#1{\makebox[0in][r]{#1}}
+     \def\centbox#1{\makebox[0in]{#1}}
+     \def\topbox#1{\raisebox{-\baselineskip}[0in][0in]{#1}}
+     \def\midbox#1{\raisebox{-0.5\baselineskip}[0in][0in]{#1}}
+
+\vspace{3cm}
+
+\title{ 
+%	\logo{
+Probability
+%	}
+}
+	\author{G.V.V Sharma*}
+
+
+\maketitle
+
+%\tableofcontents
+
+\bigskip
+
+\renewcommand{\thefigure}{\theenumi}
+\renewcommand{\thetable}{\theenumi}
+\begin{enumerate}[label=\arabic*]
+\numberwithin{equation}{enumi}
+	\item For a biased die the probabilities for the different faces to turn up are given below:\\
+	\\
+	\begin{tabular}{ |c|c|c|c|c|c|c| }
+	\hline
+	\textbf{Face} &1 &2 &3 &4 &5 &6 \\
+	\hline
+	\textbf{Prob.} &0.21 &0.32 &0.21 &0.15 &0.05 &0.17 \\
+	\hline
+	\end{tabular}\\
+	\\
+	
+	This die is tossed up you are told that either face 1 or face 2 has turned up. Then the probability that is face 1 is.....\\ 
+	\item $P(A \cup B) =P(A \cap B)$ if and only if the relation between P(A) and P(B) is.....\\
+	\item A box contains 100 tickets numbered 1,2,....,100. Two tickets are chosen at random. It is given that the maximum number on the two chosen tickets is not more than 10. The minimum number on them is 5 with probability........\\
+	\item If $\dfrac{1+3p}{3}$,$\dfrac{1-p}{4}$,$\dfrac{1-2p}{2}$ are the probabilities of three mutually exclusive events, then the set of all values of p is.....\\
+   \item urn A contains 6 red and 4 black and urn B contains 4 red and 6 black balls. One ball is drawn at random from urn A and placed in urn B. Then one ball is drawn at random from urn B and palced in urn A. If one ball is now drawn at random from urn A, the probability that is found to be red is......\\
+   \item A pair of fair dice is rolled together till a sum of either 5 or 7 is obtained. Then the probability that 5 comes before 7 is......\\
+	\item  Let A and B be two events such that P(A) = 0.3 and $P(A \cup B )$ = 0.8. If A and B is independent events then P(B)=......\\
+	 \item If the mean and variance of the binomial variate X are 2 and 1 respectively, then the probability that X takes a value greater than one is equal to .....\\
+	\item Three faces of a fair die are yellow, two faces red and one is blue. The die is tossed three times. The probability that the colours yellow, red and blue appear in the first, second and third tosses respectively is.............\\ 
+  	\item If two events A and B are such that $P(A^{c})$ = 0.3, P(B)=0.4 and $P(A \cap B^{c})$ = 0.5, then $P(B/(A \cup B^{c}))$ = ..........\\
+	\item If the letters of the word "Assasin" are written down at random in a row, the probability that no two S's occur together is 1/35\\
+	\item If the probability for A to fail in an examination is 0.2 and that for B is 0.3, then the probability that either A or B fails is 0.5\\
+	\item Two fair dice are tossed. Let x be the event that the first die shows an even number and y be the event that the second die shows an odd number. The two events x and y are:\\
+	(a) Mutually exclusive\\
+	(b) Independent and mutually exclusive\\
+	(c) Dependent\\
+	(d) None of these\\
+	\item Two events A and B have probabilities 0.25 and 0.50 repectively. The probability that both A and B occur simultaneously is 0.14. Then the probability that neither A nor B is
+	\begin{itemize}
+	\begin{multicols}{2}
+	\item[(a)]0.39	\item[(b)]0.25	\item[(c)]0.11	\item[(d)]none of these
+	\end{multicols}
+	\end{itemize}
+	\item The probability that an event A happens in one trail of an experiment is 0.4. Three independent trails of the experiment are performed. The probability that the event A happens atleast once is
+	\begin{itemize}
+	\begin{multicols}{2}
+	\item[(a)]0.936	\item[(b)]0.784	\item[(c)]0.904	\item[(d)]none of these
+	\end{multicols}
+	\end{itemize}
+	\item If A and B are two events such that $P(A)>0$, and P(B) $\neq$ 1, then P($\dfrac{\overline{A}}{\overline{B}}$) is equal to \\
+	\\
+	(a) 1-$P(\dfrac{A}{B})$\\
+	\\
+	(b) 1-$P(\dfrac{\overline{A}}{B})$\\
+	\\
+	(c) $\dfrac{1-P(A \cup B)}{P \overline{B}}$\\
+	\\
+	(d) $\dfrac{P (\overline{A})}{P( \overline{B})}$\\
+	(Here $\overline{A}$  and  $\overline{B}$ are complements of A and B respectively).\\
+	\item Fifteen coupouns are numbered 1,2,3,......15, respectively. Seven coupouns are selected at random one at a time with replacement. The probability that the largest number apperaring on a selected coupoun is 9, is\\
+	\\
+	(a) ($\dfrac{9}{16})^{6}$\\
+	\\
+	(b) ($\dfrac{8}{15})^{7}$\\
+	\\
+	(c) ($\dfrac{3}{5})^{7}$\\
+	\\
+	(d) none of these\\
+	\item Three identical dice are rolled. The probability that the same number will appear on each of them is
+	\begin{multicols}{4}
+	(a)$\dfrac{1}{6}$		(b)$\dfrac{1}{36}$		(c)$\dfrac{1}{18}$		(d)$\dfrac{3}{28}$
+	\end{multicols}
+	\item A box contains 24 identical balls of which 12 are white and 12 are black. The balls are drawn at random from the box one at a time with replacement. The probability that a white ball is drawn for the 4th time on the 7th draw is 
+\begin{multicols}{4}
+	(a)$\dfrac{5}{64}$ (d)$\dfrac{27}{32}$ (c)$\dfrac{5}{32}$ (d)$\dfrac{1}{2}$
+	\end{multicols}
+	\item One hundred identical coins, each with probability p, of showing up heads are tossed once. If $0<p<1$ and the probability of heads showing on 50 coins equal to that of heads showing on 51 coins, then the value of p is....
+	\begin{multicols}{4}
+	(a)$\dfrac{1}{2}$		(b)$\dfrac{49}{101}$		(c)$\dfrac{50}{101}$	(d)$\dfrac{51}{101}$
+	\end{multicols}
+	\item India plays two matches each with West Indies and Australia. In any match the probabilities of the India getting, points 0, 1 and 2 are 0.45, 0.05 and 0.50 respectively. Assuming that the outcomes are independent, the probability of India getting at least 7 points is
+	\begin{itemize}
+	\begin{multicols}{2}
+	\item[(a)]0.8750		\item[(b)]0.0875		\item[(c)]0.0625		\item[(d)]0.0250
+	\end{multicols}
+	\end{itemize}
+	\item An unbiased die with the faces marked 1,2,3,4,5 and 6 is rolled four times. Out of four faces value obtained, the probability that the maximum face is not less than 2 and the maximum face value is not greater than 5, is then:
+	\begin{multicols}{4}
+	(a)$\dfrac{16}{81}$  (b)$\dfrac{1}{81}$  	(c)$\dfrac{80}{81}$     (d)$\dfrac{65}{81}$	
+	\end{multicols}
+	\item Let A,B,C be  three mutually independent events.\\
+	Consider the two statements $S_1$ and $S_2$\\
+	$S_1$ : A and B $\cup$ C are independent\\ 	 
+	$S_2$ : A and B $\cap$ C are independent\\
+	Then'\\
+	(a) Both $S_1$ and $S_2$ are true\\
+	(b) Only $S_1$ is true\\
+	(c) Only $S_2$ is true\\
+	(d) Neither $S_1$ nor $S_2$ is true\\
+	\item The probability of India winning a match aganist west indies is $\dfrac{1}{2}$. Assuming independence from match to match the probability  that in a 5 match series India's second win occurs at third test is
+	\begin{itemize}
+	\begin{multicols}{4}
+	\item[(a)]$\dfrac{1}{8}$   \item[(b)]$\dfrac{1}{4}$    \item[(c)]$\dfrac{1}{2}$   \item[(d)]$\dfrac{2}{3}$
+	\end{multicols}
+	\end{itemize}
+	\item  Three of six vertices of a regular hexagon are chosen at random. The probability that the triangle with three vertices is equilateral, equals
+	\begin{itemize}
+	\begin{multicols}{4}
+	\item[(a)]$\dfrac{1}{2}$ \item[(b)]$\dfrac{1}{5}$ \item[(c)]$\dfrac{1}{10}$ \item[(d)]$\dfrac{1}{20}$
+	\end{multicols}
+	\end{itemize}
+	\item For the three events A,B and C, P(exactly one of the  events A or B occurs) = P(exactly one of the two events B or C occurs) = P(exactly one of the events C or A occurs) = P and P(all the events occur simultaneously) = $p^{2}$, where $0<p<\dfrac{1}{2}$. Then the probability of at least one of the three events A,B and C occuring is\\
+	(a) $\dfrac{3p+2p^{2}}{2}$\\
+	\\
+	(b) $\dfrac{p+3p^{2}}{4}$\\
+	\\
+	(c) $\dfrac{p+3p^{2}}{2}$\\
+	\\
+	(d) $\dfrac{3p+2p^{2}}{4}$\\
+	\item If the integers m  and n are choosen at random from 1 to 100, then the probability that a number of the form $7^{m}$+$7^{n}$ is divisible by 5 equals 
+	\begin{itemize}
+	\begin{multicols}{4}
+	\item[(a)]$\dfrac{1}{4}$    \item[(b)]$\dfrac{1}{7}$    
+	\item[(c)]$\dfrac{1}{8}$    \item[(d)]$\dfrac{1}{49}$
+	\end{multicols}
+	\end{itemize}
+	\item Two numbers ae selected randomly from the set S={1,2,3,4,5,6} without repalcement one by one. the probability that minimum of the two numbers less than 4 is
+	\begin{itemize}
+	\begin{multicols}{4}
+	\item[(a)]$\dfrac{1}{15}$     \item[(b)]$\dfrac{14}{15}$   \item[(c)]$\dfrac{1}{5}$ \item[(d)]$\dfrac{4}{5}$\\
+	\end{multicols}
+	\end{itemize}
+	\item If P(B) =$\dfrac{3}{4}$, $P(A \cap B \cap \overline{C})$ = $\dfrac{1}{3}$ and\\
+	$p(\overline{A} \cap B \cap \overline{C})$, then $P(B \cap C)$ is
+	\begin{multicols}{4}
+	(a)$\dfrac{1}{12}$   (b)$\dfrac{1}{6}$    (c)$\dfrac{1}{15}$     (d)$\dfrac{1}{9}$\\
+	\end{multicols}
+	\item If three distinct numbers are choosen randomly from the first 100 natural numbers, then the probability that all three of them are divisible by both 2 and 3 is
+	\begin{multicols}{4}
+	(a)$\dfrac{4}{25}$   (b)$\dfrac{4}{35}$   (c)$\dfrac{4}{33}$    (d$\dfrac{4}{1155}$
+	\end{multicols}
+	\item A six faced fair dice is thrown untill 1 comes, then the probability that 1 comes in even no. of trails is
+	\begin{multicols}{4}
+	(a)$\dfrac{5}{11}$    (b)$\dfrac{5}{6}$    (c)$\dfrac{6}{11}$      (d)$\dfrac{1}{6}$
+	\end{multicols}
+	\item One Indian and four Anerican men an their wives are to be seated randomly around a circular table. Then the conditional probability that the indian man is seated adjacent to his wife given that each American man is seated adjacent to his wife is
+	\begin{itemize}
+	\begin{multicols}{4}
+	\item[(a)]$\dfrac{1}{2}$  \item[(b)]$\dfrac{1}{3}$   \item[(c)]$\dfrac{2}{5}$    \item[(d)]$\dfrac{1}{5}$
+	\end{multicols}
+	\end{itemize}
+	\item Let $E^{c}$ denote the complement of an event E. Let E, F, G be pairwise independent events with P(G)$>0$ and\\
+\\
+	(a) $P(E^{c})$+$P(F^{c})$\\
+	(b) $P(E^{c})$-$P(F^{c})$\\
+	(c) $P(E^{c})$-P(F)\\
+	(d) P(E)-$P(F^{c})$\\
+	\item An experiment has 10 equally likely outcomes. Let A abd B be non-empty events of the experiment. If A consists of 4 outcomes, the number of outcomes that B must have so that A and B are independent, is\\
+	(a) 2, 4 or 8\\
+	(b) 3, 6 or 9\\
+	(c) 4 or 8\\
+	(d) 5 or 10\\
+	\item Let $\omega$ be a complex cube root of unity with $\omega \neq$ 1. A fair die is thrown three times. If $r_1, r_2$ and $r_3$ are the numbers obtained on the die, then the probability that $\omega^{r_1}+\omega^{r_2}+\omega^{r_3}$ = 0 is
+	\begin{itemize}
+	\begin{multicols}{4}
+	\item[(a)]$\dfrac{1}{18}$  \item[(b)]$\dfrac{1}{9}$   \item[(c)]$\dfrac{2}{9}$    \item[(d)]$\dfrac{1}{36}$
+	\end{multicols}
+	\end{itemize}
+	\item A signal which can be green or red with probability $\frac{4}{5}$ and $\frac{1}{5}$ respectively, is received by station A and then transmitted to station B. The probability of each station receiving the signal correctly is $\frac{3}{4}$. If the signal recived at statiin B is green, then the probability that the original signal was green is
+	\begin{itemize}
+	\begin{multicols}{4}
+	\item[(a)]$\dfrac{3}{5}$    \item[(b)]$\dfrac{6}{7}$    \item[(c)]$\dfrac{20}{23}$   \item[(d)]$\dfrac{9}{20}$
+	\end{multicols}
+	\end{itemize}
+	\item Four fair dice D1, D2, D3 and D4; each having six faces numbered 1,2,3,4,5 and 6 are rolled simultaneously. The probability that D4 shows a number appearing on one of D1, D2 and D3 is
+	\begin{multicols}{4}
+	(a)$\dfrac{91}{216}$  (b)$\dfrac{108}{216}$ (c)$\dfrac{125}{216}$  (d)$\dfrac{127}{216}$
+	\end{multicols}
+	\item Three boys and two girls stand in a queue. The probability, that the number of boys ahead of every girl is at least one more than the number of girls ahead of her, is
+	\begin{itemize}
+	\begin{multicols}{4}
+	\item[(a)]$\dfrac{1}{2}$  \item[(b)]$\dfrac{1}{3}$  \item[(c)]$\dfrac{2}{3}$  \item[(d)]$\dfrac{3}{4}$
+	\end{multicols}
+	\end{itemize}
+	\item A computer producing factory has only two pairs $T_1$ and $T_2$. Plant $T_1$ produces $20\%$ and plant $T_2$ produces $80\%$ of the total computers produced. $7\%$ of computers produced in the factory turn out to be defective. It is known that P(computer turns out to be defective given that it is produced in palnt $T_1$) = 10P(computer turns out to be defective given that it is produced in plant $T_2$), where P(E) denotes the probability of an event E. A computer produced in the factory is randomly selected and it does not turn out to be defective. Then the probability that it is produced in plant $T_2$ is
+	\begin{multicols}{4}
+	(a)$\dfrac{36}{73}$ 	(b)$\dfrac{47}{79}$     (c)$\dfrac{78}{93}$  (d)$\dfrac{75}{83}$
+	\end{multicols}
+	\item Three randomly chosen non-negative integers x, y and z are found to satisfy the equation x+y+z=10. Then the probability that z is even, is
+	\begin{multicols}{4}
+	(a)$\dfrac{36}{55}$  (b)$\dfrac{6}{11}$  (c)$\dfrac{1}{2}$  (d)$\dfrac{5}{11}$
+	\end{multicols}
+	\item If M and N are any two events, the probability that exactly one of them ocurs is\\
+	(a) P(M)+P(N)-2P(M $\cap$ N)\\
+	(b) P(M)+P(N)-P(M $\cap$ N)\\
+	(c) P($M^{c}$)+P($N^{c}$) -2P($M^{c} \cap N^{c}$)\\
+	(d) P(M $\cap N^{c}$)+P($M^{c} \cap N$)\\
+	\item A student appears for tests I,II and III . The student is successful  if he passes either in the tests I and II or tests I and III . The probabilities of the student passing in tests are p,q and $\dfrac{1}{2}$ respectively. If the probability that the student is successful is $\dfrac{1}{2}$, then\\
+	(a) p = q = 1\\
+	(b) p = q = $\dfrac{1}{2}$\\
+	(c) p = 1, q =  0\\
+	(d) p = 1, q = $\dfrac{1}{2}$\\
+	(d) none of these\\
+	\item The probability that at least one of the events A and B occurs is 0.6. If A and B occur simultaneously with probability 0.2, then P($\overline{A}$) +P($\overline{B}$) is\\
+	(a) 0.4  (b) 0.8   (c) 1.2   (d) 1.4  (e) none\\
+	\item For two given events A and B , P(A$\cap$B)\\
+	(a) not less than P(A)+P(B)-1\\
+	(b) not greater than P(A)+P(B)\\
+	(c) equal to P(A)+P(B)-P(A $\cup$B)\\
+	(d) equal to P(A)+P(B)+P(A$\cup$B)\\
+	\item If E and F are two independent events such that $0<P(E)<1$ and $0<P(F)<1$, then\\
+	(a) E and F are mutually exclusive\\
+	(b) E and $F^{c}$ (the compliment of the event F) are independent\\
+	(c) $E^{c}$ and $F^{c}$ are independent\\
+	(d) P(E$|$F)+P($E^{c}|$F)=1\\
+	\item For any two events A and B in sample space\\
+	(a) P(A/B)	$\geq$ $\dfrac{P(A)+P(B)-1}{P(B)}$,P(B) $\neq$ 0 is always true\\
+	(b) P(A $\cap$ $\overline{B}$)=P(A)-P(A $\cap$ B) does not hold\\
+	(c) P(A $\cup$ B)=1-P($\overline{A}$)P($\overline{B}$) if A and B are independent\\
+	(d) P(A $\cup$ B)=1-P($\overline{A}$)P($\overline{B}$) if A and B are disjoint.\\
+	\item E and F are two independent events. The probability that both E and F happens is $\dfrac{1}{12}$ and the probability that neither E nor F happens is $\dfrac{1}{2}$ Then,\\
+	\\
+	(a) P(E)=$\dfrac{1}{3}$,P(F)=$\dfrac{1}{4}$\\
+	(b) P(E)=$\dfrac{1}{2}$,P(F)=$\dfrac{1}{6}$\\
+	(c) P(E)=$\dfrac{1}{6}$,P(F)=$\dfrac{1}{2}$\\
+	(d) P(E)=$\dfrac{1}{4}$,P(F)=$\dfrac{1}{3}$\\
+	\item Let $0<P(A)<1, 0<P(B)<1$ and\\
+	P(A $\cup$ B) = P(A)+P(B)-P(A)P(B) then\\
+	(a) P(B/A)=P(B)-P(A)\\
+	(b) P(A'-B')=P(A')-P(B')\\
+	(c) P(A $\cup$ B)' = P(A')P(B')\\
+	(d) P(A/B)=P(A)\\
+	\item If from each of the three boxes containing 3 white and 1 black, 2 white and 2 black,1 white and 3 black balls, one ball is drawn at random, then the probability that 2 white and 1 black ball will be drawn is
+	\begin{multicols}{4}
+	(a)$\dfrac{13}{32}$
+	(b)$\dfrac{1}{4}$
+	(c)$\dfrac{1}{32}$
+	(d)$\dfrac{3}{16}$
+	\end{multicols}
+	\item If $\overline{E}$ and $\overline{F}$ are the complementary events of events E and F respectively and if $0<P(F)<1$, then\\
+	(a) P(E/F)+P($\overline{E}$/F) = 1\\
+	(b) P(E/F)+P(E/$\overline{F}$) = 1\\
+	(c) P($\overline{E}$/F)+P(E/$\overline{F}$) = 1\\
+	(d) P(E/$\overline{F}$)+p($\overline{E}$/$\overline{F}$) = 1\\
+	\item There are four machines and it is known that exactly two of them are faulty. They are tested, one by one, in a random order till both the faulty machines are identified. Then the probability that only two tests are needed is 
+	\begin{itemize}
+	\begin{multicols}{4}
+	\item[(a)]$\dfrac{1}{3}$   \item[(b)]$\dfrac{1}{6}$   \item[(c)]$\dfrac{1}{2}$  \item[(d)]$\dfrac{1}{4}$
+	\end{multicols}
+	\end{itemize}
+	\item If E and F are events with P(E) $\leq$ P(F) and P(E $\cap$ F) $>$ 0, then\\
+	(a) occurence of E $=>$ occurence of F\\
+	(b) occurence of F $=>$ occurence of E\\
+	(c) non-occurence of E $=>$ non-occurence of F\\
+    (d) none of the above implication holds\\
+    \item A fair coin is tossed repeatdly. If the tail appears on first four tosses, then the probability of the head appearing on the fifth toss equals
+    \begin{multicols}{4}
+    (a)$\dfrac{1}{2}$ (b)$\dfrac{1}{32}$ (d)$\dfrac{31}{32}$  (d)$\dfrac{1}{5}$
+    \end{multicols}
+    \item Seven white balls and three black are randomly placed in a row. The probability that no two black balls are placed adjacently equals.
+    \begin{multicols}{4}
+    (a)$\dfrac{1}{2}$  (b)$\dfrac{7}{15}$  (c)$\dfrac{2}{15}$  (d)$\dfrac{1}{3}$
+    \end{multicols}
+    \item The probabilities that a student passes in mathematics, physics and chemistry are m,p, and c, respectively. Of these subjects, the student has a 75$\%$ chance of passing in at least one, a 50$\%$  chance of passing in at least two, and a 40$\%$  chance of passing in exactly two. Which of the following relations are true?
+    \begin{itemize}
+   \begin{multicols}{2}
+    \item[(a)]p+m+c=$\dfrac{19}{20}$  \item[(b)]p+m+c=$\dfrac{27}{20}$
+    \\
+    \item[(c)]pmc=$\dfrac{1}{10}$     \item[(d)]pmc=$\dfrac{1}{4}$
+    \end{multicols}
+    \end{itemize}
+    \item Let E and F be two independent events. The probability that exactly one of them occurs is $\dfrac{11}{25}$ and the probability of none of them occuring is $\dfrac{2}{25}$. If P(T) denotes the probability of occurence of the event T, then\\
+    \\
+    (a) P(E) = $\dfrac{4}{5}$,P(F) = $\dfrac{3}{5}$ \\
+    \\
+    (b) P(E) = $\dfrac{1}{5}$,P(F) = $\dfrac{2}{5}$ \\
+    \\
+    (c) P(E) = $\dfrac{2}{5}$,P(F) = $\dfrac{1}{5}$ \\
+    \\
+    (d) P(E) = $\dfrac{3}{5}$,P(F) = $\dfrac{4}{5}$ \\
+    \item A ship is fitted with three engines $E_1$, $E_2$ and $E_3$ . The engines function independently of each other with respective probabilities $\dfrac{1}{2}$, $\dfrac{1}{4}$ and $\dfrac{1}{4}$. For the ship to be operational at least two of its engines must function. Let X denote the event that the ship is operational and let $X_1$, $X_2$ and $X_3$ denote respectively the events that the engines $E_1$, $E_2$ and $E_3$ are functioning. Which of the following is true?\\
+    \\
+    (a) P[$X^{c}_i|$X]  \\
+    \\
+    (b) p[Exactly two engines of the ship are functioning [X]] = $\dfrac{7}{8}$\\
+    \\
+    (c) P[X$|X_2$] = $\dfrac{5}{16}$\\
+    \\
+    (d) P[X$|X_1$] = $\dfrac{7}{16}$\\
+    \item Let x and Y be two events such that P(X$|$Y) = $\dfrac{1}{2}$, P(Y$|$X) = $\dfrac{1}{3}$, and P(X$\cap$Y) = $\dfrac{1}{6}$. which of the following is correct?\\
+    (a) P(X$\cup$Y) = $\frac{2}{3}$\\
+    (b) X and Y are independent\\
+    (c) X and Y are not independent\\
+    (d) P($X^{c}\cap$Y) = $\frac{1}{3}$\\
+    \item Four persons independently solve a certain problem correctly with probabilities $\dfrac{1}{2}$, $\dfrac{3}{4}$, $\dfrac{1}{4}$, $\dfrac{1}{8}$. Then the probability that the problem is solved correctly by at least one of them is
+    \begin{multicols}{4}
+    (a)$\dfrac{235}{256}$ (b)$\dfrac{21}{256}$  (c)$\dfrac{3}{256}$     	(d)$\dfrac{253}{256}$
+    \end{multicols}
+    \item Let X and y be two events such that P(X) = $\dfrac{1}{3}$, P(X$|$Y) = $\dfrac{1}{3}$, P(X$|$Y) = $\dfrac{1}{2}$ and P(Y$|$X) = $\dfrac{2}{5}$, Then
+    \begin{itemize}
+    \begin{multicols}{2}
+    \item[(a)]P(Y)=$\dfrac{4}{15}$  \item[(b)]P(X'$|$Y)=$\dfrac{1}{2}$
+    \item[(c)] P(X$\cap$Y)=$\dfrac{1}{5}$   \item[(d)]P(X$\cup$Y)=$\dfrac{2}{5}$
+    \end{multicols}
+    \end{itemize}
+    \item There are three bags $B_1$, $B_2$ and $B_3$. The bag $B_1$ contains 5 red and 5 green balls, $B_2$ contains 3 red and 5 green balls, and $B_3$ contains 5 red and 3 green balls. Bags $B_1$,$B_2$ and $B_3$ have probabilities  $\dfrac{3}{10}$, $\dfrac{3}{10}$ and $\dfrac{4}{16}$ respectively of being chosen. A bag is selected at random and a ball is chosen at random from the bag. Then which of the following options are correct?\\
+    \\
+    (a) Probability that the selected bag is $B_3$ and the chosen ball is green equals to $\dfrac{3}{10}$\\
+    (b) Probability that the chosen ball is green, given that the selected bag is $B_3$, equals $\dfrac{3}{8}$\\
+	(c) Probability that the selected bag is $B_3$ given that the chosen ball is green, equals $\dfrac{5}{13}$\\
+	(d) Probability that the chosen ball is green equals $\dfrac{39}{80}$\\
+	\item Balls are drawn one-by-one without replacement from a box containing 2 black, 4 white and 3 red balls till all the balls are drawn. Find the probability that the balls drawn are in the order 2 black, 4 white and 3 red.\\
+	\item Six boys and six girls sit in a row randomly. Find the probability that\\
+	(I) That six girls sit together\\
+	(II) The boys and girls sit alternately.\\
+	\item An anti-craft gun take a maximum of the four shots at an enemy plane moving away from it. The probabilities of hitting the palne at the first, second, third and fourth shot are 0.4, 0.3, 0.2 and 0.1 respectively. What is the probability that the gun hits the plane?\\
+	\item A and B are two candidates seeking admission in IIT. The probability that A is selected is 0.5 and the probability that the both A and B are selected is atmost 0.3. Is it possible that the probability of B getting selected is 0.9?\\
+	\item Cards are drawn one by one at random from a well-shuffled full pack of 52 playing cards untill 2 aces are obtained for the first time. if N is the number of cards required to be drawn, then show that $P_r$(N=n) = $\dfrac{(n-1)(52-n)(51-n)}{50x49x17x13}$ where 2$\leq n \leq $50\\
+	\item A,B,C are events such that\\
+	 P(A)=0.3, P(B) = 0.4, P(C) = 0.8\\
+	 P(AB) = 0.08, P(AC) = 0.28; P(ABC) = 0.09\\
+	 If(A$\cup B \cup C$) $\geq$ 0.75, then show that P(BC) lies in the interval $0.23 \leq x \leq 0.48$\\
+	 \item In a certain city only two news papers A and B are published, it is known that 25$\%$ of the city population reads A and 20$\%$ reads B while 8$\%$  reads both A and B. It is also known that the 30$\%$ of those who reads A but not B look into advertisements and 40$\%$  of those who read B but not A look into advertisements while 50$\%$ of those who read both A and B look into advertisements. What is the percentage of the population that reads an advertisement?\\
+	 \item In a multiple-choice question there are four alternative answers, of which one or more are correct. A candidate will get marks in the question only if he ticks the correct  answers. The candidate decides to tick the answers at random, if he is allowed upto three chances to answer the questions, find the probability that he will get marks in the questions.\\
+	 \item A lot contains 20 articles. The probability that the lot contains exactly 2 defective articles is 0.4 and the probability that the lot contains exactly 3 defective articles is 0.6. articles are drawn from the lot at random one by one without replacement and are tested till all defective articles are found. What the probability that the testing procedure ends at the twelth testing\\
+	 \item A man takes a step forward with probability 0.4 and backwards with probability 0.6 Find the probability that at the end of eleven steps he is one step away from the starting point.\\
+	 \item A box contains 2 fifty paise coins, 5 twenty paise coins and a certain fixed number (N$\geq$2) of ten and five paise coins. Five coins are taken out of the box at random. Find the probability that the total value of these 5 coins is less than one rupee and fifty paise.\\
+	 \item Suppose the probability A to win a game aganist B is 0.4. If A has an option of playing either a"best of 3 games" or a "best of  games" match aganist B, whic hoption should be choose so that the probability of his winning thw match higher(No game ends in draw).\\
+	 \item A is a set containing n elements. A subset P of A is choosen at random. The set A is reconstructed by replacing the elements of P. A subset Q of A is again chosen at random. Find the probability that P and Q have no common elements.\\
+	 \item In a test an examine either guesses or copies or knows the answer to a multiple choice question with four choices. The probability that he makes a guess is $\dfrac{1}{3}$ and the probability that he copies the answer $\dfrac{1}{6}$. The probability that his answer is correct given that he copied it, is $\dfrac{1}{8}$. Find the probability that he knew the answer to the question given that he correctly answered it.\\
+	 \item A lot contains 50 defective and 50 non defective bulbs. Two bulbs are drawn at random, one at a time, with replacement. The events A,B,C are defined as\\
+	 A = (the first bulb is defective)\\
+	 B = (the second bulb is non-defective)\\
+	 C = (the two bulbs are both defective or both non-defective)\\
+	 Determine whether\\
+	 (I) A,B,C are pairwise independent\\
+	 (II) A,B,C are independent\\
+	 \item Numbers are selected at random, one at a time, from the twp digit numbers 00,01,02,03,.....99 with replacement. an event E occurs if and only if the product of the two digits of a selected number is 18. If four numbers are selected. find probability that the event E occur at least 3 times.\\
+	 \item An unbiased coin is tossed. If the result is a head, a pair of unbiased dice is rolled and the numbers obtained by adding the numbers on the two faces is noted. If the result is a tail, a card from a well-shuffled pack of eleven cards numbered 2,3,4,......12 is picked and the number on the card is noted. What is the probability that the noted number is either 7 or 8?\\
+	 \item In how many ways three girls and nine boys seates in two vans, each having numbered seats, 3 in the front and 4 at the back? How many seating arrangment are possible if 3 girls should sit together in a back row on adjacent seats? Now, if all the seating arrangements are equally likely, what is the probability of 3 girls sitting together in a back row on adjacent seats.\\
+	 \item If p and q are choosen randomly from the set {1,2,3,4,5,6,7,8,9,10}, with replacement, determining the probability that the roots of the equation $x^{2}$+px+q = 0 are real.\\
+	 \item Three players A, B and C toss a coin cylically in that order(that is A,B,C,A,B...) till a head shows. Let be the probability that the coin shows a head. Let $\alpha, \beta$ and $\gamma$ be, respectively, the probabilities that A,B and C gets the first head. Prove that $\beta$ = (1-p)$\alpha$. Determine $\alpha, \beta$ and $\gamma$(in terms of p).\\
+	 \item Eight players $P_1$,$P_2$,.....$P_8$ play a knock-out tournament. It is known that whenever the players $P_i$ and $P_i$ play, the player $P_i$ will win if i$<$j. Assuming that the players are paired at random in each around, what is the probability that the player $P_4$ reaches the final?
+	\item A coin has probability p of showing head when tossed. It is tossed n times. let $P_n$ denote the probability that no two (or more) consecutive heads occur. prove that  $P_1$ = 1, $P_2$ = 1-$p^{2}$ and  $P_n$ = (1-p).  $P_(n-1)$ + p(1-p) $P_(n-2)$ for all n $\geq$ 3.\\
+	\item An urn contains m white balls and n black balls. A ball is drawn at random is put back into the urn along with k additional balls of the same colour as that of the ball drawn. A ball is again drawn at random. What is the probability that the ball is drawn now is white?\\
+	\item An unbiased die, with faces numbered 1,,2,3,4,5,6 is thrown n times and the list of n numbers showing up is noted. What is the probability that among the numbers 1,2,3,4,5,6 only three numbers appear in this list?\\
+	\item A box contains n coins, m of which are fair and the rest are biased. The probability of getting a head when a fair coin is tossed is $\dfrac{1}{2}$, while it is $\dfrac{2}{3}$ when a biased coin is tossed. A coin is drawn from the box at random and is tossed twice. The first time it shows head and the second time it shows tail. What is the probaility that the coin is drawn is fair?\\
+	\item For a student qualify, he must pass at least two out of three exams. The probability that he will pass the first exam is p. If he fails in one of the exams then the probability of his passing in the next exam is $\frac{p}{2}$ otherwise it remains the same. Find the probability that he will qualify.\\
+	\item A is targetting to B. B and C are targetting to A. Probability of hitting the target by A,B and C are $\dfrac{2}{3}$,$\dfrac{1}{2}$,$\dfrac{11}{3}$ respectively. If A is hit then find the probability that B hits the target and C does not.\\
+	\item A and B are two independent events. C is event in which exactly one of A or B occurs. Prove that\\
+	P(c) $\geq$ P(A$\cup$B)P($\overline{A} \cap \overline{B}$)\\
+	\item A box contains 12 red and 6 white balls. Balls are drawn from the box one at a time without replacement. If in 6 draws there are at least 4 white ball. Find the probability that exactly one white is drawn in the next two draws.(binomial coefficients can be left as such)\\
+	\item A person goes to office either by car scooter, bus or tarin, the probability of which being $\dfrac{1}{7}$,$\dfrac{3}{7}$,$\dfrac{2}{7}$ and $\dfrac{1}{7}$ respectively. Probability that he reaches office late, if he takes car, scooter,bus or train is $\dfrac{2}{9}$, $\dfrac{1}{9}$, $\dfrac{4}{9}$ and $\dfrac{1}{9}$ respectively. Given that he reached office in time, then what is the probability that he travelled by car.\\
+	\item  There are n urns, each of these contain n+1 balls. The ith urn contains i white balls and(n+1-i)red balls. Let $u_i$ be the event of selecting ith urn, i=1,2,3....., n and w be the event of getting a white ball.   passage 1\\
+	\item P($u_i$) $\infty$ i, where i=1,2,3,....,n, then $\displaystyle{\lim_{x \to \infty}}$ P(w)= 	
+	\begin{itemize}
+	\begin{multicols}{4}
+	\item[(a)]1   \item[(b)]$\dfrac{2}{3}$  \item[(c)]$\dfrac{3}{4}$  \item[(d)]$\dfrac{1}{4}$
+	\end{multicols}
+	\end{itemize}
+	\item  If p($U_i$)=c,(a  constant) then P($U_n$/w)
+	\begin{multicols}{4}
+	(a)$\dfrac{2}{n+1}$  (b)$\dfrac{1}{n+1}$  (c)$\dfrac{n}{n+1}$  (d)$\dfrac{1}{2}$
+	\end{multicols}
+	\item Let p($U_i$) = $\dfrac{1}{n}$, if n is even and E denotes of choosing even numbered urn, then the value of P(w/E) is\\
+	\begin{multicols}{2}
+	(a)$\dfrac{n+2}{2n+1}$    
+	(b)$\dfrac{n+2}{2(n+1)}$ 
+	(c)$\dfrac{n}{n+1}$
+	(d)$\dfrac{1}{n+1}$
+	\end{multicols}
+	\item A fair die is tossed repeatedly untill a six is obtained. Let X denote the number of toss required    passage 2\\
+	\item The probability of X = 3 is
+	\begin{multicols}{4}
+	(a)$\dfrac{25}{216}$ 
+	(b)$\dfrac{25}{36}$	
+	(c)$\dfrac{5}{36}$
+	(d)$\dfrac{125}{216}$
+	\end{multicols}
+	\item The probability that X $\geq$ 3 is
+	\begin{multicols}{4}
+	(a)$\dfrac{25}{216}$ 
+	(b)$\dfrac{25}{36}$	
+	(c)$\dfrac{5}{36}$
+	(d)$\dfrac{125}{216}$
+	\end{multicols}
+	\item The conditional probability that X $\geq$ 6 given X $>$ 3 equals
+	\begin{multicols}{4}
+	(a)$\dfrac{25}{216}$ 
+	(b)$\dfrac{25}{36}$	
+	(c)$\dfrac{5}{36}$
+	(d)$\dfrac{125}{216}$
+	\end{multicols}
+	\item Let $U_1$ and $U_2$ be two urns such that $U_1$ contains 3 white and 2 red balls, and $U_2$ contains only 1 white ball. A fair coin is tossed. If head appears then 1 ball is drawn at random from $U_1$ and put into $U_2$. However, if tail appears then 2 balls are drawn at random from $U_2$.   passage 3\\
+	\item The probability of the drawn ball from $U_2$ being white is
+	\begin{multicols}{4}
+	(a)$\dfrac{13}{30}$
+	(b)$\dfrac{23}{30}$
+	(c)$\dfrac{19}{30}$
+	(d)$\dfrac{11}{30}$
+	\end{multicols}
+	\item Given that the drawn ball from $U_2$ is white, the probability that the head appeared on the coin is
+	\begin{multicols}{4}
+	(a)$\dfrac{17}{23}$
+	(b)$\dfrac{11}{23}$
+	(c)$\dfrac{15}{23}$
+	(d)$\dfrac{12}{23}$
+	\end{multicols}
+	\item A box $B_1$ contains 1 white ball, 3 red balls and 2 black balls. Another box $B_2$ contains 2 white balls, 3 red balls and 4 black balls. A third box $B_3$ contains 3 white balls,4 red balls and 5 black balls.   passage 4\\
+	\item If one ball is drawn from each of the boxes $B_1$, $B_2$ and $B_3$. The probability that all 3 drawn balls are of the same colour is 
+	\begin{multicols}{4}
+	(a)$\dfrac{82}{648}$  
+	(b)$\dfrac{90}{648}$  
+	(c)$\dfrac{558}{648}$
+	(d)$\dfrac{566}{648}$
+	\end{multicols}
+	\item If 2 balls are drawn (without replacement) from a randomly selected box and one of the balls is white and the other ball is red, the probability that these 2 balls are drawn from the $B_2$ is.
+	\begin{multicols}{4}
+	(a)$\dfrac{116}{181}$   
+	(b)$\dfrac{126}{181}$  
+	(c)$\dfrac{65}{181}$  
+	(d)$\dfrac{55}{181}$
+	\end{multicols}
+	\item Box 1 contains three cards bearing numbers 1,2,3. box 2 contains five cards bearing numbers 1,2,3,4,5. box 3 contains seven cards bearing numbers 1,2,3,4,5,6,7. A card is drawn from each of the boxes. Let $x_i$ be number on the card drawn from the $i^{th}$ box, i=1,2,3.    passage 5 \\
+	\item The probability that $x_1$ + $x_2$ + $x_3$ is odd, is
+	\begin{multicols}{4}
+	(a)$\dfrac{29}{105}$   
+	(b)$\dfrac{53}{105}$  
+	(c)$\dfrac{57}{105}$  
+	(d)$\dfrac{1}{2}$
+	\end{multicols}
+	\item The probability that $x_1$, $x_2$, $x_3$ are in an atrhemetic progression, is
+	\begin{multicols}{4}
+	(a)$\dfrac{9}{105}$ 
+	(b)$\dfrac{10}{105}$   
+	(c)$\dfrac{11}{105}$   
+	(d)$\dfrac{7}{105}$
+	\end{multicols}
+	\item Let $n_1$ and $n_2$ be the red and black balls, respectively, in Box I. Let $n_3$ and $n_4$ be the number of red and black balls, respectively, in box II.   passage 6\\
+	(a)   $n_1$ = 3, $n_2$ = 3, $n_3$ = 5, $n_4$ = 15\\
+	(b)   $n_1$ = 2, $n_2$ = 6, $n_3$ = 10, $n_4$ = 50\\
+	(c)   $n_1$ = 8, $n_2$ = 6, $n_3$ = 5, $n_4$ = 20\\
+	(d)   $n_1$ = 6, $n_2$ = 12, $n_3$ = 5, $n_4$ = 20\\
+	\item A ball is drawn at random from box I and transferred to boxII. If the probability of drawing a red ball from box I, after this transfer, is $\dfrac{1}{3}$, then the correct option(s) with the possible values of $n_1$ and $n_2$ is(are)\\
+	(a)   $n_1$ = 4, $n_2$ = 6\\
+	(b)   $n_1$ = 2, $n_2$ = 3\\
+	(c)   $n_1$ = 10, $n_2$ = 20\\
+	(d)   $n_1$ = 3, $n_2$ = 6\\
+	\item Football teams $T_1$ and $T_2$ have to play two games aganist each other. It is assumed that the outcomes of the two games are independent. The probabilities of $T_1$ winning, drawing and losing a game agagnist $T_2$ are $\dfrac{1}{2}$, $\dfrac{1}{6}$ and $\dfrac{1}{3}$ respectively.Each team gets 3 points for a win, 1 point for a draw and 0 point for a loss in a game. let X and Y denote the total points scored by teams $T_1$ and $T_2$ respectively after two games.   passage 7\\
+	\item P(X$>$Y) is 
+	\begin{multicols}{4}
+	(a)$\dfrac{1}{4}$  
+	(b)$\dfrac{5}{12}$   
+	(c)$\dfrac{1}{2}$ 
+	(d)$\dfrac{7}{120}$
+	\end{multicols}
+	\item P(X = Y) is
+	\begin{multicols}{4}
+	(a)$\dfrac{11}{36}$ 
+	(b)$\dfrac{1}{3}$   
+	(c)$\dfrac{13}{36}$ 
+	(d)$\dfrac{1}{2}$
+	\end{multicols}
+	\item There are five students $S_1$, $S_2$, $S_3$, $S_4$  and $S_5$ ina a music class and for them there are five seats $R_1$,
+$R_2$, $R_3$, $R_4$ and $R_5$  arranged in a row, where initially the seat $R_1$ is alloted to the student $S_i$ = 1,2,3,4,5. But, on the examination day, the five students are randomly alloted the five seats.     passage 8\\
+	\item The probability that, on examination day, the student $S_1$, gets the previously alloted seat $R_1$, and NONE of the remaining students gets the seat previously alloted to him/her is
+	\begin{multicols}{4}
+	(a)$\dfrac{3}{40}$  
+	(b)$\dfrac{1}{8}$  
+	(c)$\dfrac{7}{40}$  
+	(d)$\dfrac{1}{5}$
+	\end{multicols}
+	\item For i = 1,2,3,4 let $T_i$ denote the event that the student $S_1$ and $S_{i+1}$ do NOT sit adjacent to each other on the day of the examination. Then, the probability of the event $T_1 \cap T_2 \cap T_3 \cap T_4$ is
+	\begin{multicols}{4}
+	(a)$\dfrac{1}{15}$ 
+	(b)$\dfrac{1}{10}$  
+	(c)$\dfrac{7}{60}$  
+	(d)$\dfrac{1}{5}$
+	\end{multicols}
+	\item Let $H_1$, $H_2$ and $H_n$ be mutually exclusive and exhaustive events with P($H_i$) $>$ 0, i = 1,2,3,....n. Let E be any other event $0<P(E)<1$.\\
+	STATEMENT-1:\\
+	$P(H_i | E)>P(E|H_i))$. P($H_1$) for i=1,2,3,....n. because\\
+	\\
+	STATEMENT-2:
+	$\sum_{i=1}^{n}$P($H_i$) = 1.\\
+	(a) Statement-1 is True, statement-2 is True,Statement-2 is a correct explanation for Statement-1.\\
+	(b) Statement-1 is True, statement-2 is True. Statement-2 is not a correct explanation for statement-1\\
+	(c) Statement-1 is True, statement-2 is False\\
+	(d) Statement-1 is False, statement-2 is True\\
+	\item Consider the system of equations ax+by = 0; cx+dy = 0, where a,b,c,d $\in$ {0,1}\\
+	Statement-1 : The probability that the system of equation has aunique solution is $\dfrac{3}{8}$.\\
+	\\
+	Statement-2 : The probability that system of equation has asolution is 1.\\
+	(a) STATEMENT-1 is True, STATEMENT-2 is True; STATEMENT-2 is a correct explanation of STATEMENT-1.\\
+	(b) STATEMENT-1 is True, STATEMENT-2 is True; STATEMENT-2 is NOT a correct explanation of STATEMENT-1.\\
+	(c) STATEMENT-1 is True, STATEMENT-2 is False.\\
+	(d) STATEMENT-1 is False, STATEMENT-2 is True.\\
+	\item Of the three independent events $E_1$, $E_2$ and $E_3$, the probability that only $E_1$ occurs is $\alpha$, only $E_2$ occure is $\beta$ and only $E_3$ occurs is $\gamma$. Let the probability p that none of events $E_1$, $E_2$ or $E_3$ occurs satisfy the equations ($\alpha$  2$\beta)p$ = $\alpha\beta$ and ($\beta - 3\alpha$)p = 2$\beta\gamma$. all the given probabilities are assumed to lie in the interval(0,1).\\
+	\\
+	Then $\dfrac{Probability of occurence of E_1}{Probability of occurence of E_3}$.\\
+	\item The minimum number of items of a fair coin needs to be tossed, so that the probability of getting at least two heads is at least 0.96, is.\\
+	\item Let S be the sample space of all 3x3 matrices with entries from the set (0,1). Let the events $E_1$ and $E_2$ be given by $E_1$ = {A $\in$ S:det A = 0} and $E_2$ = {A $\in$ S:sum of entries of A is 7}.\\
+	If a matrix chosen at random from S, then the conditional probability P($E_1$/$E_2$) equals.......\\
+	\item A problem in mathematics is given to three students A,B,C and their respective probability of solving the problem is $\dfrac{1}{2}$, $\dfrac{1}{3}$ and $\dfrac{1}{4}$. Probability that the problem is solved is
+	\begin{itemize}
+	\begin{multicols}{4}
+	\item[(a)]$\dfrac{3}{4}$ 
+	\item[(b)]$\dfrac{1}{2}$ 
+	\item[(c)]$\dfrac{2}{3}$ 
+	\item[(d)]$\dfrac{1}{3}$
+	\end{multicols}
+	\end{itemize}
+	\item A and B events such that P(A $\cup$ B) = $\dfrac{3}{4}$, P(A $\cap$ B) = $\dfrac{1}{4}$, P($\overline{A}$) = $\dfrac{2}{3}$ then P($\overline{A} \cap B$ ) is
+	\begin{itemize}
+	\begin{multicols}{4}
+	\item[(a)]$\dfrac{5}{12}$
+	\item[(b)]$\dfrac{3}{8}$  
+	\item[(c)]$\dfrac{5}{8}$  
+	\item[(d)]$\dfrac{1}{4}$
+	\end{multicols}
+	\end{itemize}
+	\item A dice is tossed 5 times. Getting an odd number is considered a success. Then the variance of distribution of success is.
+	\begin{itemize}
+	\begin{multicols}{4}
+	\item[(a)]$\dfrac{8}{3}$  
+	\item[(b)]$\dfrac{3}{8}$   
+	\item[(c)]$\dfrac{4}{5}$  
+	\item[(d)]$\dfrac{5}{4}$
+	\end{multicols}
+	\end{itemize}
+	\item The mean and variance of a random variable X having binomial distribution are 4 and 2 repectively, then P(X=1) is
+	\begin{multicols}{4}
+	(a)$\dfrac{1}{4}$ (b)$\dfrac{1}{32}$ (c)$\dfrac{1}{16}$ (d)$\dfrac{1}{8}$
+	\end{multicols}
+	\item Eventa A,B,C are mutually exclusive events such that P(A) = $\dfrac{3x+1}{3}$,P(B) = $\dfrac{1-x}{4}$ and P(C) = $\dfrac{1-2x}{2}$ The set of possible values of x are in the interval.
+	\begin{multicols}{2}
+	(a)[0,1] (b)[$\dfrac{1}{3}$, $\dfrac{1}{4}$]  (c)[$\dfrac{1}{3}$], $\dfrac{2}{3}$] (d)[$\dfrac{1}{3}$, $\dfrac{13}{3}$]	
+	\end{multicols}
+	\item Five horses are in a race. Mr.A selects two of the horses at random and bets on them. The probability that Mr.A selected the winning horse is
+	\begin{itemize}
+	\begin{multicols}{4}
+	\item[(a)]$\dfrac{2}{5}$ \item[(b)]$\dfrac{4}{5}$ \item[(c)]$\dfrac{3}{5}$ \item[(d)]$\dfrac{1}{5}$
+	\end{multicols}
+	\end{itemize}
+	\item The probability that a speaks truth is $\dfrac{4}{5}$, while the probability for B is $\dfrac{3}{4}$. The probability that they contradict each other when asked to speak on a fact is
+	\begin{itemize}
+	\begin{multicols}{4}
+	\item[(a)]$\dfrac{4}{5}$ \item[(b)]$\dfrac{1}{5}$ \item[(c)]$\dfrac{7}{20}$ \item[(d)]$\dfrac{3}{20}$
+	\end{multicols}
+	\end{itemize}
+	\item A random variable X has the probability distibution:\\
+	\\ \begin{tabular}{ |c|c|c|c|c|c|c|c|c| }
+	\hline
+	\textbf{X:} &1 &2 &3 &4 &5 &6 &7 &8 \\
+	\hline
+	\textbf{Prob.} &0.2 &0.2 &0.1 &0.1 &0.2 &0.1 &0.1 &0.1 \\
+	\hline
+	\end{tabular}\\ 
+	\\
+	 For the events E = {X is a prime number} and F = {$X<4$}, the P(E $\cup$ F) is.
+	 \begin{multicols}{4}
+	(a)0.50 (b)0.77 (c)0.35 (d)0.87
+	\end{multicols}
+	\item The mean and the variance of a binomial distribution are 4 and 2 respectively. Then the probability of 2 success is
+	\begin{multicols}{4}
+	(a)$\dfrac{28}{256}$  (b)$\dfrac{219}{256}$  (c)$\dfrac{128}{256}$ (d)$\dfrac{37}{256}$
+	\end{multicols}
+	\item Three houses are available in a locality. Three persons apply for the houses. Each applies for one house without consulting others. The probability that all three apply for the same house
+	\begin{itemize}
+	\begin{multicols}{4}
+	\item[(a)]$\dfrac{2}{9}$  \item[(b)]$\dfrac{1}{9}$  \item[(c)]$\dfrac{8}{9}$  \item[(d)]$\dfrac{7}{9}$
+	\end{multicols}
+	\end{itemize}
+	\item A random variable X has poisson distribution with mean 2. The P($X>1.5$) equals
+	\begin{itemize}
+	\begin{multicols}{4}
+	\item[(a)]$\dfrac{2}{e^{2}}$ \item[(b)]0 \item[(c)]1-$\dfrac{3}{e^{2}}$ \item[(d)]$\dfrac{3}{e^{2}}$
+	\end{multicols}
+	\end{itemize}
+	\item Let  A and B be two events such that P($\overline{A \cup B}$) = $\dfrac{1}{6}$, P(A $\cap$ B) = $\dfrac{1}{4}$ and P($\overline{A}$ = $\dfrac{1}{4}$ and where $\overline{A}$ stands for complement of event A. Then events A and B are\\
+	(a) Equally likely and mutually exclusive\\
+	(b) Equally likely but not independent\\
+	(c) independent but not equally likely\\
+	(d) mutually exclusuve and independent\\
+	\item At a telephone enquiry system the number of phone cells regarding relevant enquiry follow poisson distribution with an average of 5 phone calls during 10 minute time intervals. The probablity that there is at the most one phone call during a 10-minute time period is
+	\begin{multicols}{4}
+	(a)$\dfrac{6}{5^{e}}$ (b)$\dfrac{5}{6}$ (c)$\dfrac{6}{55}$ (d)$\dfrac{6}{e^{5}}$
+	\end{multicols}
+	\item Two  aeroplanes I and II bomb a target in succcession. the probabilities of I and II scoring a hit correctly are 0.3 and 0.2, respectively. The second palne will bomb only if the first misses the target. The probability that the target is hit by the second plane is\\
+	\begin{multicols}{4}
+	(a)0.2 (b)0.7 (c)0.06  (d)0.14
+	\end{multicols}
+	\item a pair of fair die is thrown independently three times. The probability of getting a score of exactly 9 twice is 
+	\begin{multicols}{4}
+	(a)$\dfrac{8}{729}$  (b)$\dfrac{8}{243}$  (c)$\dfrac{1}{729}$  (d)$\dfrac{8}{9}$
+	\end{multicols}
+	\item It is given that the events A and B are such that P(A) =$\dfrac{1}{4}$, P(A$|$B) = $\dfrac{1}{2}$ and P(B$|$A) = $\dfrac{2}{3}$. Then P(B) is
+	\begin{itemize}
+	\begin{multicols}{4}
+	\item[(a)]$\dfrac{1}{6}$  \item[(b)]$\dfrac{1}{3}$  \item[(c)]$\dfrac{2}{3}$  \item[(d)]$\dfrac{1}{2}$
+	\end{multicols}
+	\end{itemize}
+	\item A die is thrown. Let A be the event that the number obtained is greater than 3. Let B be the event that the number obtained is less than 5. Then P(A $\cup$ B) is
+	\begin{itemize}
+	\begin{multicols}{4}
+	\item[(a)]$\dfrac{3}{5}$  \item[(b)]0  \item[(c)]1  \item[(d)]$\dfrac{2}{5}$
+	\end{multicols}
+	\end{itemize}
+	\item In a binomial distribution B(n,p=$\dfrac{1}{4}$), If the probability of atleast one success is greater than or equal to $\dfrac{9}{10}$,  then n is greater than:
+	\begin{multicols}{2}
+	(a)$\dfrac{1}{\log_{10}4+\log_{10}3}$   (b)$\dfrac{9}{\log_{10}4-\log_{10}3}$ (c)$\dfrac{4}{\log_{10}4-\log_{10}3}$   (d)$\dfrac{1}{\log_{10}4-\log_{10}3}$
+	\end{multicols}
+	\item One ticket is selected at random from 50 tickets numbered 00,01,02,....49.  Then the probability that the sum of the digits on the selected ticket is 8, given that the product of these digits is zero, equals:
+	\begin{multicols}{4}
+	(a)$\dfrac{1}{7}$  (b)$\dfrac{5}{14}$   (c)$\dfrac{1}{50}$  (d)$\dfrac{1}{14}$
+	\end{multicols}
+	\item Four numbers are chosen at random(without replacement) from the set {1,2,3,....20}.\\
+	Statement-1: The probability that the chosen numbers when arranged in some order will form an AP is $\dfrac{1}{85}$.\\
+	Statement-2 If the four chosen numbers form an AP, then the set of all possible values of common difference is($\pm1,\pm2,\pm3,\pm4,\pm5$).\\
+	(a) Statement-1 is True, Statement-2 is True; Statement-2 is not a correct expalanation for Statement-1\\
+	(b) Statement-1 is True, Statement-2 is False\\
+	(c) Statement-1 is False,Statement-2 is True\\
+	(d) Statement-1 is True, Statement-2 is True; Statement-2 is a correct expalanation for Statement-1\\
+	\item An urn contains nine balls of which three are real, four are blue and two are green. three balls are drawn at random without replacement from the urn. The probability that the three balls have different colours is
+	\begin{multicols}{4}
+	(a)$\dfrac{2}{7}$  (b)$\dfrac{1}{21}$   (d)$\dfrac{2}{23}$  (d)$\dfrac{1}{3}$
+	\end{multicols}
+	\item Consider 5 independent Bernoulli's trail's each with probability of success p. If the probability of at least one failure is greater than or equal to (a) $\frac{31}{32}$, then p lies in the interval.
+	\begin{multicols}{2}
+	(a)[$\dfrac{3}{4}$,$\dfrac{11}{12}$]  (b)[0,$d\frac{1}{2}$] 
+	(c)[$\dfrac{11}{12}$,1]  (d)[$\dfrac{1}{2}$,$\dfrac{3}{4}$]
+	\end{multicols}
+	\item if C and D are two events such that C $\subset$ D and P(D)$\neq$ 0, then the correct statement among the following is
+	\begin{itemize}
+	\begin{multicols}{2}
+	\item[(a)]$P(C|D)\geq$P(C)  \item[(b)]$P(C|D)<$P(C) 
+	\item[(c)]$P(C|D)$ = $\dfrac{P(D)}{P(C)}$    \item[(d)]$P(C|D)$ = P(C)
+	\end{multicols}
+	\end{itemize}
+	\item Three  numbers are chosen at random without replacement from {1,2,3,....8}. The probability that their minimum number is 3, given that their maximium is 6, is:
+	\begin{itemize}
+	\begin{multicols}{4}
+	\item[(a)]$\dfrac{3}{8}$ \item[(b)]$\dfrac{1}{5}$ \item[(c)]$\dfrac{1}{4}$ \item[(d)]$\dfrac{2}{5}$
+	\end{multicols}
+	\end{itemize}
+	\item A multiple choice examination has 5 questions. Each question has three alternative answers of which exactly one is correct. The probability that a student will get 4 or more correct answers just by guessing is:\\
+	\begin{multicols}{4}
+	(a)$\dfrac{17}{3^{5}}$   (a)$\dfrac{13}{3^{5}}$  (c)$\dfrac{11}{3^{5}}$  (d)$\dfrac{10}{3^{5}}$
+	\end{multicols}
+	\item Let A and B be two events such that P($\overline{A \cup B}$) = $\dfrac{1}{6}$, P($\overline{A \cap B}$) = $\dfrac{1}{4}$ and P($\overline{A}$) = $\dfrac{1}{4}$, where $\overline{A}$ stande for the complement of the event A. Then the events A and B are\\
+	(a) independent but not equally likely\\
+	(b) independent and equally likely\\
+	(c) mutually exclusive and independent\\
+	(d) equally likely but not independent\\
+	\item If 12 identical balls are to be placed in 3 identical boxes, then the probability that one of the boxes contains exactly 3 balls is:
+	\begin{itemize}
+	\begin{multicols}{2}
+	\item[(a)]220$(\dfrac{1}{3})^{12}$     \item[(b)]22$(\dfrac{1}{3})^{11}$
+	\item[(c)]$\dfrac{55}{3}(\dfrac{2}{3})^{11}$ \item[(d)]55$(\dfrac{2}{3})^{10}$
+	\end{multicols}
+	\end{itemize}
+	\item Let two fair six-faced dice A and B be thrown simultaneously. If $E_1$ is the event that die A shows up four, $E_2$ is the event that die B shows up two and $E_3$ is the event that the sum of numbers on both dice is odd, then which of the following statements on both dice is odd, then which of the following statements is NOT true?\\
+	(a) $E_1$ and $E_3$ are independent\\
+	(b) $E_1$, $E_2$ and $E_3$ are independent\\
+	(c) $E_1$ and $E_2$ are independent\\
+	(d) $E_2$ and $E_3$ are independent\\
+	\item A box contains 15 green and 10 yellow balls. If 10 balls are randomly drawn, one by one,with replacement then the variance of green balls drawn. is:
+	\begin{itemize}
+	\begin{multicols}{4}
+	\item[(a)]$\dfrac{6}{25}$  
+	\item[(b)]$\dfrac{12}{5}$  
+	\item[(c)]6  
+	\item[(d)]4
+	\end{multicols}
+	\end{itemize}
+	\item If two different numbers are taken from the set(1,2,.....10), then the probability that their sum as well as absolute difference are both multiple of 4, is:
+	\begin{multicols}{4}
+	(a)$\dfrac{7}{55}$  (b)$\dfrac{6}{55}$  (c)$\dfrac{12}{55}$
+(d)$\dfrac{14}{55}$
+	\end{multicols}
+	\item For three events A,B and C, P(Exactly one of A or B occurs) = P(Exactly one of B or C occurs) = P(Exactly C or A occurs) = $\dfrac{1}{4}$ and P(All three events occur simultaneously) = $\dfrac{1}{16}$ Then the probability that at least one of the event occurs, is:
+	\begin{multicols}{4}
+	(a)$\dfrac{3}{16}$  (b)$\dfrac{7}{32}$  (c)$\dfrac{7}{16}$  (d)$\dfrac{7}{64}$\\
+	\end{multicols}
+	\item A bag contains 4 red and 6 black balls. A ball is drawn at random from the bag, its colour is observed and this ball along with two additional balls of the same colour are returned to the bag. if now a ball is drawn random from the bag, then the probability that this is draw ball is red, is.\\
+	\begin{itemize}
+	\begin{multicols}{4}
+	\item[(a)]$\dfrac{2}{5}$  \item[(b])$\dfrac{1}{5}$  \item[(c)]$\dfrac{3}{4}$  \item[(d)]$\dfrac{3}{10}$\end{multicols}
+	\end{itemize}
+	\item Two cards are drawn random successively with replacement from a well-shuffled deck of 52 cards. Let X denote the random variable of number of aces obtained in the two drawn cards. Then $P(X = 1)$+$P(X = 2)$ equals:
+	\begin{multicols}{4}
+	(a)$\dfrac{49}{169}$ (b)$\dfrac{52}{169}$ (c)$\dfrac{24}{169}$ (d)$\dfrac{25}{169}$
+	\end{multicols}
+	\item Four persons can hit a target correctly with probabilities of $\dfrac{1}{2}$, $\dfrac{1}{3}$, $\dfrac{1}{4}$, $\dfrac{1}{8}$ respectively. If all hit at the target independently, then the probability that the target would be hit, is.
+	\begin{multicols}{4}
+		(a)$\dfrac{25}{192}$   (b)$\dfrac{7}{32}$   (c)$\dfrac{1}{192}$  (d)$\dfrac{25}{32}$\\		
+		\end{multicols}
+\end{enumerate}
+\end{document}
